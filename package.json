@@ -1,9 +1,36 @@
 {
   "name": "generator-emberate",
   "version": "0.0.0",
-  "description": "",
-  "keywords": ["yeoman-generator"],
+  "description": "Yeoman generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "knownasilya/generator-emberate",
+  "author": {
+    "name": "Ilya Radchenko",
+    "email": "ilya@burstcreations.com",
+    "url": "https://github.com/knownasilya"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
   "dependencies": {
-    "yeoman-generator": "^0.17.3"
+    "yeoman-generator": "^0.17.0",
+    "chalk": "^0.5.0",
+    "yosay": "^0.3.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
   }
 }
