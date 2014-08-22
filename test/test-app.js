@@ -22,7 +22,19 @@ describe('emberate:app', function () {
       'bower.json',
       'package.json',
       '.editorconfig',
-      '.jshintrc'
+      '.jshintrc',
+      'client',
+      'client/initializers',
+      'client/models',
+      'client/routes',
+      'client/views',
+      'client/templates',
+      'client/templates/components',
+      'client/components',
+      'client/transforms',
+      'client/helpers',
+      'client/adapters',
+      'client/serializers'
     ]);
   });
 });

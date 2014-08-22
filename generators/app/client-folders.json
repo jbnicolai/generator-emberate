@@ -1,0 +1,14 @@
+[
+  "templates",
+  "templates/components",
+  "initializers",
+  "controllers",
+  "models",
+  "views",
+  "routes",
+  "transforms",
+  "helpers",
+  "components",
+  "adapters",
+  "serializers"
+]

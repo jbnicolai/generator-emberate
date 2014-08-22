@@ -1,8 +1,10 @@
 'use strict';
+
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
+var clientFolders = require('./client-folders');
 
 var EmberateGenerator = yeoman.generators.Base.extend({
   initializing: function () {
@@ -33,8 +35,7 @@ var EmberateGenerator = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.dest.mkdir('app');
-      this.dest.mkdir('app/templates');
+      this._makeClientFolders();
 
       this.src.copy('_package.json', 'package.json');
       this.src.copy('_bower.json', 'bower.json');
@@ -48,6 +49,14 @@ var EmberateGenerator = yeoman.generators.Base.extend({
 
   end: function () {
     this.installDependencies();
+  },
+
+  _makeClientFolders: function () {
+    this.dest.mkdir('client');
+
+    clientFolders.forEach(function (folder) {
+      this.dest.mkdir('client/' + folder);
+    }, this);
   }
 });
 
