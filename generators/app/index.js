@@ -57,9 +57,9 @@ var EmberateGenerator = yeoman.generators.Base.extend({
   },
 
   end: function () {
-    if (!this.options['skip-install']) {
-      this.installDependencies();
-    }
+    this.installDependencies({
+      skipInstall: this.options['skip-install']
+    });
   }
 });
 
