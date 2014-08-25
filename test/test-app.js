@@ -9,7 +9,7 @@ var os = require('os');
 describe('emberate:app', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../generators/app'))
-      .inDir(path.join(os.tmpdir(), './temp-test'))
+      .inDir(path.join(os.tmpdir(), 'temp-test'))
       .withOptions({ 'skip-install': true })
       .withPrompt({
         someOption: true

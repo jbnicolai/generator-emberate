@@ -9,6 +9,9 @@ var clientFolders = require('./client-folders');
 var EmberateGenerator = yeoman.generators.Base.extend({
   initializing: function () {
     this.pkg = require('../../package.json');
+    this.option('skip-install', {
+      type: 'Boolean'
+    });
   },
 
   prompting: function () {
@@ -34,29 +37,29 @@ var EmberateGenerator = yeoman.generators.Base.extend({
   },
 
   writing: {
-    app: function () {
-      this._makeClientFolders();
-
+    deps: function () {
       this.src.copy('_package.json', 'package.json');
       this.src.copy('_bower.json', 'bower.json');
     },
 
-    projectfiles: function () {
+    client: function () {
+      this.dest.mkdir('client');
+
+      clientFolders.forEach(function (folder) {
+        this.dest.mkdir('client/' + folder);
+      }, this);
+    },
+
+    helpers: function () {
       this.src.copy('editorconfig', '.editorconfig');
       this.src.copy('jshintrc', '.jshintrc');
     }
   },
 
   end: function () {
-    this.installDependencies();
-  },
-
-  _makeClientFolders: function () {
-    this.dest.mkdir('client');
-
-    clientFolders.forEach(function (folder) {
-      this.dest.mkdir('client/' + folder);
-    }, this);
+    if (!this.options['skip-install']) {
+      this.installDependencies();
+    }
   }
 });
 
