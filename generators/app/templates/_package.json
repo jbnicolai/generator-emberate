@@ -7,8 +7,19 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "ember-template-compiler": "^1.6.0-beta.2",
     "derequire": "^1.0.0",
     "browserify": "^4.2.3",
-    "watchify": "^1.0.2"
+    "watchify": "^1.0.2",
+    "emberate": "^1.0.1",
+    "hbsfy": "^2.1.0",
+    "gaze": "^0.6.4",
+    "gulp": "^3.6.2",
+    "gulp-clean": "^0.2.4",
+    "gulp-less": "^1.2.3",
+    "gulp-livereload": "^2.1.0",
+    "gulp-util": "^2.2.16",
+    "gulp-watch": "^0.6.5",
+    "mkdirp": "^0.3.5"
   }
 }
