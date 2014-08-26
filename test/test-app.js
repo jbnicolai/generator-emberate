@@ -5,14 +5,16 @@ var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var os = require('os');
+var tempDir = path.join(os.tmpdir(), 'temp-test');
+console.log(tempDir);
 
 describe('emberate:app', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../generators/app'))
-      .inDir(path.join(os.tmpdir(), 'temp-test'))
+      .inDir(tempDir)
       .withOptions({ 'skip-install': true })
       .withPrompt({
-        someOption: true
+        appName: 'App'
       })
       .on('end', done);
   });
@@ -36,5 +38,10 @@ describe('emberate:app', function () {
       'client/adapters',
       'client/serializers'
     ]);
+  });
+
+  it('appName set properly', function () {
+    assert.fileContent('package.json', /App/);
+    assert.fileContent('bower.json', /App/);
   });
 });

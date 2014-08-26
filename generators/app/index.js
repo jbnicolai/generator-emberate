@@ -23,14 +23,14 @@ var EmberateGenerator = yeoman.generators.Base.extend({
     ));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
+      type: 'input',
+      name: 'appName',
+      message: 'What would you like to call your app?',
+      default: this.appname
     }];
 
     this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
+      this.appName = props.appName;
 
       done();
     }.bind(this));
@@ -38,8 +38,8 @@ var EmberateGenerator = yeoman.generators.Base.extend({
 
   writing: {
     deps: function () {
-      this.src.copy('_package.json', 'package.json');
-      this.src.copy('_bower.json', 'bower.json');
+      this.template('_package.json', 'package.json');
+      this.template('_bower.json', 'bower.json');
     },
 
     client: function () {
