@@ -5,9 +5,17 @@
     "fix": "rm -rf vendor && mkdir vendor && derequire < ./bower_components/ember/ember.js > ./vendor/ember.js && derequire < ./bower_components/ember-data/ember-data.js > ./vendor/ember-data.js",
     "postinstall": "bower install && npm run fix"
   },
+  "browserify": {
+    "transform": [
+      ["hbsfy", { 
+        "precompiler": "ember-template-compiler"
+        "compiler": "Ember.Handlebars"
+      }]
+    ]
+  },
   "dependencies": {},
   "devDependencies": {
-    "ember-template-compiler": "^1.6.0-beta.2",
+    "ember-template-compiler": "^1.6.1",
     "derequire": "^1.0.0",
     "browserify": "^4.2.3",
     "watchify": "^1.0.2",
