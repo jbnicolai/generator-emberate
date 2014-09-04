@@ -27,10 +27,21 @@ var EmberateGenerator = yeoman.generators.Base.extend({
       name: 'appName',
       message: 'What would you like to call your app?',
       default: this.appname
+    }, {
+      type: 'list',
+      name: 'buildTool',
+      message: 'Which build tool would you like to use?',
+      default: 0,
+      choices: [
+        'gulp',
+        'grunt',
+        'broccoli'
+      ]
     }];
 
     this.prompt(prompts, function (props) {
       this.appName = props.appName;
+      this.buildTool = props.buildTool;
 
       done();
     }.bind(this));
@@ -38,8 +49,24 @@ var EmberateGenerator = yeoman.generators.Base.extend({
 
   writing: {
     deps: function () {
-      this.template('_package.json', 'package.json');
       this.template('_bower.json', 'bower.json');
+    },
+
+    buildTool: function () {
+      if (this.buildTool === 'gulp') {
+        this.template('gulp_package.json', 'package.json');
+        this.template('gulpfile.js', 'gulpfile.js');
+
+        // Make gulp dirs
+        this.dest.mkdir('gulp');
+        this.dest.mkdir('gulp/utils');
+        this.dest.mkdir('gulp/tasks');
+
+        // Copy gulp scripts/tasks
+        this.src.copy('gulp/index.js', 'gulp/index.js');
+        this.src.copy('gulp/utils/script-filter.js', 'gulp/utils/script-filter.js');
+        this.src.copy('gulp/tasks/.gitkeep', 'gulp/tasks/.gitkeep');
+      }
     },
 
     client: function () {

@@ -14,12 +14,13 @@ describe('emberate:app', function () {
       .inDir(tempDir)
       .withOptions({ 'skip-install': true })
       .withPrompt({
-        appName: 'App'
+        appName: 'App',
+        buildTool: 'gulp'
       })
       .on('end', done);
   });
 
-  it('creates files', function () {
+  it('creates core files', function () {
     assert.file([
       'bower.json',
       'package.json',
@@ -38,6 +39,16 @@ describe('emberate:app', function () {
       'client/adapters',
       'client/serializers'
     ]);
+  });
+
+  it('creates gulp files', function () {
+    assert.file([
+      'gulpfile.js',
+      'gulp/index.js',
+      'gulp/utils',
+      'gulp/utils/script-filter.js',
+      'gulp/tasks'
+    ]); 
   });
 
   it('appName set properly', function () {
