@@ -8,7 +8,7 @@
   "browserify": {
     "transform": [
       ["hbsfy", { 
-        "precompiler": "ember-template-compiler"
+        "precompiler": "ember-template-compiler",
         "compiler": "Ember.Handlebars"
       }]
     ]
