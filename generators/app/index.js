@@ -88,6 +88,9 @@ var EmberateGenerator = yeoman.generators.Base.extend({
       clientFolders.forEach(function (folder) {
         this.dest.mkdir('client/' + folder);
       }, this);
+
+      this.src.copy('client/app.js', 'client/app.js');
+      this.src.copy('client/router.js', 'client/router.js');
     },
 
     helpers: function () {

@@ -27,6 +27,8 @@ describe('emberate:app', function () {
       '.editorconfig',
       '.jshintrc',
       'client',
+      'client/app.js',
+      'client/router.js',
       'client/initializers',
       'client/models',
       'client/routes',
