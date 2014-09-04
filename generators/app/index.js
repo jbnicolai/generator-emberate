@@ -5,6 +5,7 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var clientFolders = require('./client-folders');
+var gulpTasks = require('./gulp-tasks');
 
 var EmberateGenerator = yeoman.generators.Base.extend({
   initializing: function () {
@@ -65,7 +66,19 @@ var EmberateGenerator = yeoman.generators.Base.extend({
         // Copy gulp scripts/tasks
         this.src.copy('gulp/index.js', 'gulp/index.js');
         this.src.copy('gulp/utils/script-filter.js', 'gulp/utils/script-filter.js');
-        this.src.copy('gulp/tasks/.gitkeep', 'gulp/tasks/.gitkeep');
+
+        gulpTasks.forEach(function (task) {
+          var base = 'gulp/tasks/';
+          var taskPath = base + task + '.js';
+
+          this.src.copy(taskPath, taskPath);
+        }, this);
+      }
+      else {
+        // TODO: implement grunt/broccoli
+        this.log('The \'' + this.buildTool +
+          '\' build tool is coming soon, in the mean time use \'gulp\'.');
+        process.exit(1);
       }
     },
 

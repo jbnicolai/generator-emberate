@@ -1,0 +1,10 @@
+[
+  "default",
+  "lint",
+  "less",
+  "emberate",
+  "browserify",
+  "watch",
+  "templates",
+  "dist"
+]
