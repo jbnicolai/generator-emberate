@@ -1,6 +1,8 @@
 # generator-emberate [![Build Status](https://secure.travis-ci.org/knownasilya/generator-emberate.png?branch=master)](https://travis-ci.org/knownasilya/generator-emberate)
 
-> [Yeoman](http://yeoman.io) generator for Emberate/browserify/gulp
+> [Yeoman](http://yeoman.io) generator for Emberate/browserify/...
+
+[![NPM](https://nodei.co/npm/generator-emberate.png?compact=true)](https://nodei.co/npm/generator-emberate/)
 
 
 ## Getting Started
