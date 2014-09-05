@@ -38,11 +38,22 @@ var EmberateGenerator = yeoman.generators.Base.extend({
         'grunt',
         'broccoli'
       ]
+    }, {
+      type: 'list',
+      name: 'cssPreprocessor',
+      message: 'Which CSS preprocessor would you like to use?',
+      default: 0,
+      choices: [
+        'none',
+        'Less',
+        'Sass'
+      ]
     }];
 
     this.prompt(prompts, function (props) {
       this.appName = props.appName;
       this.buildTool = props.buildTool;
+      this.cssPreprocessor = props.cssPreprocessor;
 
       done();
     }.bind(this));
@@ -93,6 +104,16 @@ var EmberateGenerator = yeoman.generators.Base.extend({
 
       this.src.copy('client/app.js', 'client/app.js');
       this.src.copy('client/router.js', 'client/router.js');
+    },
+
+    styles: function () {
+      var isLess = this.cssPreprocessor === 'Less';
+
+      this.template('styles/app.css', 'client/styles/app.' + (isLess ? 'less' : 'css'));
+
+      if (isLess) {
+        this.src.copy('styles/libs.less', 'client/styles/libs.less');
+      }
     },
 
     statics: function () {

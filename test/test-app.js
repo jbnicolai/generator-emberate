@@ -43,7 +43,8 @@ describe('emberate:app', function () {
       'client/transforms',
       'client/helpers',
       'client/adapters',
-      'client/serializers'
+      'client/serializers',
+      'client/styles/app.css'
     ]);
   });
 
@@ -68,5 +69,6 @@ describe('emberate:app', function () {
   it('appName set properly', function () {
     assert.fileContent('package.json', /App/);
     assert.fileContent('bower.json', /App/);
+    assert.fileContent('static/index.html', /App/);
   });
 });
