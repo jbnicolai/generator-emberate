@@ -49,6 +49,7 @@ describe('emberate:app', function () {
       'gulp/index.js',
       'gulp/utils',
       'gulp/utils/script-filter.js',
+      'gulp/utils/bundle-logger.js',
       'gulp/tasks',
       'gulp/tasks/default.js',
       'gulp/tasks/less.js',

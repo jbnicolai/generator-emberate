@@ -66,6 +66,7 @@ var EmberateGenerator = yeoman.generators.Base.extend({
         // Copy gulp scripts/tasks
         this.src.copy('gulp/index.js', 'gulp/index.js');
         this.src.copy('gulp/utils/script-filter.js', 'gulp/utils/script-filter.js');
+        this.src.copy('gulp/utils/bundle-logger.js', 'gulp/utils/bundle-logger.js');
 
         gulpTasks.forEach(function (task) {
           var base = 'gulp/tasks/';
