@@ -51,6 +51,7 @@ var EmberateGenerator = yeoman.generators.Base.extend({
   writing: {
     deps: function () {
       this.template('_bower.json', 'bower.json');
+      this.src.copy('shims.js', 'shims.js');
     },
 
     buildTool: function () {

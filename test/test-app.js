@@ -24,6 +24,7 @@ describe('emberate:app', function () {
     assert.file([
       'bower.json',
       'package.json',
+      'shims.js',
       '.editorconfig',
       '.jshintrc',
       '.jscsrc',
