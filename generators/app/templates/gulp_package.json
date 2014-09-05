@@ -13,11 +13,19 @@
       }]
     ]
   },
+  "browserify-shim": "./shims.js",
+  "browser": {
+    "handlebars": "./bower_components/handlebars/handlebars.runtime.js",
+    "jquery": "./bower_components/jquery/dist/jquery.js",
+    "ember": "./vendor/ember.js",
+    "ember-data": "./vendor/ember-data.js"
+  },
   "dependencies": {},
   "devDependencies": {
     "ember-template-compiler": "^1.6.1",
     "derequire": "^1.0.0",
     "browserify": "^4.2.3",
+    "browserify-shim": "^3.7.0",
     "watchify": "^1.0.2",
     "emberate": "^1.0.1",
     "hbsfy": "^2.1.0",
