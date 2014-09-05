@@ -95,6 +95,12 @@ var EmberateGenerator = yeoman.generators.Base.extend({
       this.src.copy('client/router.js', 'client/router.js');
     },
 
+    statics: function () {
+      this.dest.mkdir('statis');
+
+      this.template('static/index.html', 'static/index.html');
+    },
+
     helpers: function () {
       this.src.copy('editorconfig', '.editorconfig');
       this.src.copy('jshintrc', '.jshintrc');
