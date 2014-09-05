@@ -104,6 +104,7 @@ var EmberateGenerator = yeoman.generators.Base.extend({
 
       this.src.copy('client/app.js', 'client/app.js');
       this.src.copy('client/router.js', 'client/router.js');
+      this.src.copy('client/application.hbs', 'client/templates/application.hbs');
     },
 
     styles: function () {

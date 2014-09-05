@@ -38,6 +38,7 @@ describe('emberate:app', function () {
       'client/routes',
       'client/views',
       'client/templates',
+      'client/templates/application.hbs',
       'client/templates/components',
       'client/components',
       'client/transforms',
