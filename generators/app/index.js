@@ -36,7 +36,8 @@ var EmberateGenerator = yeoman.generators.Base.extend({
       choices: [
         'gulp',
         'grunt',
-        'broccoli'
+        'broccoli',
+        'npm scripts'
       ]
     }, {
       type: 'list',
