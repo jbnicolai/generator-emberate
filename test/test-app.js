@@ -26,6 +26,7 @@ describe('emberate:app', function () {
       'package.json',
       '.editorconfig',
       '.jshintrc',
+      '.jscsrc',
       'client',
       'client/app.js',
       'client/router.js',
@@ -57,7 +58,6 @@ describe('emberate:app', function () {
       'gulp/tasks/browserify.js',
       'gulp/tasks/emberate.js',
       'gulp/tasks/dist.js',
-      'gulp/tasks/templates.js',
       'gulp/tasks/watch.js'
     ]); 
   });

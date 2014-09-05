@@ -14,4 +14,4 @@ Ember.RSVP.configure('onerror', function (error) {
   Ember.Logger.assert(false, error);
 });
 
-module.exports = window.App = App;
+module.exports = global.App = App;

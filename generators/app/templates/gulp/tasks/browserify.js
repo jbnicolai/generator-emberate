@@ -10,7 +10,7 @@ var bundleLogger = require('../utils/bundle-logger');
 var cli = require('minimist')(process.argv.slice(2));
 var Gaze = require('gaze').Gaze;
 
-gulp.task('browserify', ['emberate', 'templates'], function () {
+gulp.task('browserify', ['emberate'], function () {
   var bundleMethod = cli.watch ? watchify : browserify; // see http://stackoverflow.com/q/24170445/483616
   var bundler = bundleMethod('./client/.index.js');
   var gaze;

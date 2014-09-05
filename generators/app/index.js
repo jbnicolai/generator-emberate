@@ -97,6 +97,7 @@ var EmberateGenerator = yeoman.generators.Base.extend({
     helpers: function () {
       this.src.copy('editorconfig', '.editorconfig');
       this.src.copy('jshintrc', '.jshintrc');
+      this.src.copy('jscsrc', '.jscsrc');
     }
   },
 
