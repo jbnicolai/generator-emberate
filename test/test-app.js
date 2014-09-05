@@ -72,3 +72,24 @@ describe('emberate:app', function () {
     assert.fileContent('static/index.html', /App/);
   });
 });
+
+describe('emberate:app - less', function () {
+  before(function (done) {
+    helpers.run(path.join(__dirname, '../generators/app'))
+      .inDir(tempDir)
+      .withOptions({ 'skip-install': true })
+      .withPrompt({
+        appName: 'App',
+        buildTool: 'gulp',
+        cssPreprocessor: 'Less'
+      })
+      .on('end', done);
+  });
+
+  it('creates less files', function () {
+    assert.file([
+      'client/styles/app.less',
+      'client/styles/libs.less'
+    ]);
+  });
+});
