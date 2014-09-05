@@ -6,7 +6,7 @@ var noop = require('gulp-util').noop;
 var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var watchify = require('watchify');
-var bundleLogger = require('../util/bundle-logger');
+var bundleLogger = require('../utils/bundle-logger');
 var cli = require('minimist')(process.argv.slice(2));
 var Gaze = require('gaze').Gaze;
 

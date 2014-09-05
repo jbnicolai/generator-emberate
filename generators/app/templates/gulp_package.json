@@ -29,6 +29,7 @@
     "gulp-util": "^2.2.16",
     "gulp-watch": "^0.6.5",
     "vinyl-source-stream": "^0.1.1",
+    "pretty-hrtime": "^0.2.1",
     "mkdirp": "^0.3.5"
   }
 }
