@@ -56,14 +56,7 @@ describe('emberate:app', function () {
       'gulp/utils',
       'gulp/utils/script-filter.js',
       'gulp/utils/bundle-logger.js',
-      'gulp/tasks',
-      'gulp/tasks/default.js',
-      'gulp/tasks/less.js',
-      'gulp/tasks/lint.js',
-      'gulp/tasks/browserify.js',
-      'gulp/tasks/emberate.js',
-      'gulp/tasks/dist.js',
-      'gulp/tasks/watch.js'
+      'gulp/tasks'
     ]); 
   });
 

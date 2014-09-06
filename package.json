@@ -17,7 +17,8 @@
     "test": "mocha"
   },
   "files": [
-    "app"
+    "generators/app",
+    "generators/gulp-task"
   ],
   "keywords": [
     "yeoman-generator"
