@@ -6,12 +6,17 @@ var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var os = require('os');
 var tempDir = path.join(os.tmpdir(), 'temp-test');
+var gulpTaskDeps = [
+  [helpers.createDummyGenerator(), 'emberate:gulp-task']
+];
+
 console.log(tempDir);
 
 describe('emberate:app', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../generators/app'))
       .inDir(tempDir)
+      .withGenerators(gulpTaskDeps)
       .withOptions({ 'skip-install': true })
       .withPrompt({
         appName: 'App',
@@ -71,6 +76,7 @@ describe('emberate:app - less', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../generators/app'))
       .inDir(tempDir)
+      .withGenerators(gulpTaskDeps)
       .withOptions({ 'skip-install': true })
       .withPrompt({
         appName: 'App',
