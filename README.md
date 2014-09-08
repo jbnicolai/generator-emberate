@@ -1,4 +1,4 @@
-# generator-emberate [![Build Status](https://secure.travis-ci.org/knownasilya/generator-emberate.png?branch=master)](https://travis-ci.org/knownasilya/generator-emberate)
+# generator-emberate [![Build Status][travis-badge]][travis-badge-url]
 
 > [Yeoman](http://yeoman.io) generator for Emberate/browserify/...
 
@@ -18,3 +18,6 @@ Finally, initiate the generator:
 ```bash
 yo emberate
 ```
+
+[travis-badge]: http://img.shields.io/travis/knownasilya/generator-emberate/master.svg?style=flat-square
+[travis-badge-url]: https://travis-ci.org/knownasilya/generator-emberate
