@@ -82,8 +82,8 @@ var EmberateGenerator = yeoman.generators.Base.extend({
         this.src.copy('gulp/utils/bundle-logger.js', 'gulp/utils/bundle-logger.js');
 
         gulpTasks.forEach(function (task) {
-          this.invoke('emberate:gulp-task', {
-            args: [task]
+          this.composeWith('emberate:gulp-task', {
+            arguments: [task]
           });
         }, this);
       }
