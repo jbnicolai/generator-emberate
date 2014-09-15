@@ -4,6 +4,9 @@
 
 [![NPM](https://nodei.co/npm/generator-emberate.png?compact=true)](https://nodei.co/npm/generator-emberate/)
 
+__:warning: This is an alpha version, so please use responsibly.__  
+_If you find any issues, please submit an issue or even better, a pull request._
+
 
 ## Getting Started
 
