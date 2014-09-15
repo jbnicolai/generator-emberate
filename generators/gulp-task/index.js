@@ -14,6 +14,11 @@ var EmberateGenerator = yeoman.generators.NamedBase.extend({
   writing: function () {
     var override = this.options.override;
     var fileName = this.name + '.js';
+    var destTasksPath = path.join('gulp', 'tasks');
+
+    if (!this.dest.exists(destTasksPath)) {
+      this.dest.mkdir(destTasksPath);
+    }
 
     if (!override && this.src.exists(path.join('tasks', fileName))) {
       this.src.copy(path.join('tasks', fileName), path.join('gulp/tasks', fileName));

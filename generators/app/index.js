@@ -37,7 +37,8 @@ var EmberateGenerator = yeoman.generators.Base.extend({
         'gulp',
         'grunt',
         'broccoli',
-        'npm scripts'
+        'npm scripts',
+        'none'
       ]
     }, {
       type: 'list',
@@ -67,31 +68,31 @@ var EmberateGenerator = yeoman.generators.Base.extend({
     },
 
     buildTool: function () {
-      if (this.buildTool === 'gulp') {
-        this.template('gulp_package.json', 'package.json');
-        this.template('gulpfile.js', 'gulpfile.js');
+      // TODO: implement grunt/broccoli
+      switch(this.buildTool) {
+        case 'gulp': {
+          this.template('gulp_package.json', 'package.json');
+          this.template('gulpfile.js', 'gulpfile.js');
 
-        // Make gulp dirs
-        this.dest.mkdir('gulp');
-        this.dest.mkdir('gulp/utils');
-        this.dest.mkdir('gulp/tasks');
+          this.directory('gulp', 'gulp');
 
-        // Copy gulp scripts/tasks
-        this.src.copy('gulp/index.js', 'gulp/index.js');
-        this.src.copy('gulp/utils/script-filter.js', 'gulp/utils/script-filter.js');
-        this.src.copy('gulp/utils/bundle-logger.js', 'gulp/utils/bundle-logger.js');
+          gulpTasks.forEach(function (task) {
+            this.composeWith('emberate:gulp-task', {
+              arguments: [task]
+            });
+          }, this);
+          return;
+        }
 
-        gulpTasks.forEach(function (task) {
-          this.composeWith('emberate:gulp-task', {
-            arguments: [task]
-          });
-        }, this);
-      }
-      else {
-        // TODO: implement grunt/broccoli
-        this.log('The \'' + this.buildTool +
-          '\' build tool is coming soon, in the mean time use \'gulp\'.');
-        process.exit(1);
+        case 'none': {
+          return;
+        }
+
+        default: {
+          this.log('The \'' + this.buildTool +
+            '\' build tool is coming soon, in the mean time use \'gulp\'.');
+          process.exit(1);
+        }
       }
     },
 
@@ -118,7 +119,7 @@ var EmberateGenerator = yeoman.generators.Base.extend({
     },
 
     statics: function () {
-      this.dest.mkdir('statis');
+      this.dest.mkdir('static');
 
       this.template('static/index.html', 'static/index.html');
     },
